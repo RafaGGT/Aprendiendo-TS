@@ -14,12 +14,9 @@ const ok: Resultado = { exito: true, datos: "Producto guardado" };
 const fail: Resultado = { exito: false, error: "No se pudo conectar" };
 
 
-function mostrarResultado(r: Resultado): void {
-  contenedor.classList.remove("hidden");
-  if (r.exito === true) {
-    texto.textContent = `Éxito: ${r.datos}`;
-  } else {
-    texto.textContent = `Error: ${r.error}`;
-  }
-}
+const resultadoDiv = document.querySelector(".resultado") as HTMLDivElement;
 
+function mostrar(valor: unknown): void {
+  resultadoDiv.classList.remove("hidden");
+  resultadoDiv.innerHTML = `<p class="text-white text-center text-lg">${JSON.stringify(valor)}</p>`;
+}
